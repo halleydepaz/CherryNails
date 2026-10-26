@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Nails | Salón de Uñas GT</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display, Montserrat & Dancing Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#111318',
+                        darkCard: '#1a1d25',
+                        darkCardHover: '#232732',
+                        cherryPink: '#ff758c',
+                        cherryLight: '#ff7eb3',
+                        cherryRed: '#e63946',
+                        pastelPeach: '#ffd3b6',
+                        pastelPurple: '#d8b4fe',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        cursive: ['Dancing Script', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Aesthetics */
+        body {
+            background-color: #111318;
+            color: #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Logo Gradient like Image */
+        .cherry-logo-gradient {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 50%, #fda085 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #ffd3b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gradient {
+            border-image: linear-gradient(to right, #ff758c, #ffd3b6) 1;
+        }
+
+        .glass-card {
+            background: rgba(26, 29, 37, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 117, 140, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(255, 117, 140, 0.25);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111318;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2e3d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff758c;
+        }
+
+        /* Smooth tab transition */
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+        }
+
+        /* Cherry floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cherryPink selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-card border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-full cherry-logo-gradient p-0.5 flex items-center justify-center shadow-lg transform group-hover:scale-105 transition duration-300">
+                    <div class="w-full h-full rounded-full bg-[#1a1d25]/20 backdrop-blur-xs flex flex-col items-center justify-center text-white text-center p-1">
+                        <!-- Cherry Icon SVG -->
+                        <svg class="w-5 h-5 text-white drop-shadow" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.38 8.86c-1.39-1.2-3.18-1.58-4.78-1.16L12.5 3.3a1 1 0 0 0-1.28-.6l-6 2.5a1 1 0 0 0-.54 1.31l.03.08a1 1 0 0 0 1.28.53l5.06-2.11 2.05 4.22c-1.78.78-3.07 2.4-3.3 4.38a5.503 5.503 0 0 0 4.31 6.01c2.97.58 5.76-1.39 6.34-4.36.33-1.68-.13-3.38-1.07-4.51zM6.5 20a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-cursive text-2xl font-bold text-white tracking-wide block leading-none">Cherry Nails</span>
+                    <span class="text-[10px] uppercase tracking-widest text-cherryPink font-medium">Salón de uñas</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-cherryPink transition duration-200">Inicio</a>
+                <a href="#formas" class="hover:text-cherryPink transition duration-200">Formas</a>
+                <a href="#estilos" class="hover:text-cherryPink transition duration-200">Estilos</a>
+                <a href="#cotizador" class="hover:text-cherryPink transition duration-200">Cotizador</a>
+                <a href="#contacto" class="hover:text-cherryPink transition duration-200">Ubicación</a>
+            </nav>
+
+            <!-- Action CTA -->
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/50200000000?text=Hola%20Cherry%20Nails,%20quisiera%20agendar%20una%20cita" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-cherryPink to-cherryLight text-white shadow-md hover:opacity-90 transition transform hover:-translate-y-0.5">
+                    <i class="fab fa-whatsapp text-sm mr-2"></i> Agendar Cita
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-darkCard border-b border-white/10 px-4 pt-2 pb-4 space-y-3">
+            <a href="#inicio" class="block py-2 text-sm hover:text-cherryPink border-b border-white/5">Inicio</a>
+            <a href="#formas" class="block py-2 text-sm hover:text-cherryPink border-b border-white/5">Formas de Uñas</a>
+            <a href="#estilos" class="block py-2 text-sm hover:text-cherryPink border-b border-white/5">Catálogo de Estilos</a>
+            <a href="#cotizador" class="block py-2 text-sm hover:text-cherryPink border-b border-white/5">Cotizador Interactivo</a>
+            <a href="#contacto" class="block py-2 text-sm hover:text-cherryPink">Ubicación & Contacto</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="inicio" class="relative py-16 md:py-24 overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute top-1/4 left-10 w-72 h-72 bg-cherryPink/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-pastelPurple/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Profile Info Column -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        
+                        <!-- Instagram Handle Badge -->
+                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-gray-300">
+                            <i class="fab fa-instagram text-cherryPink"></i>
+                            <span>@salon_cherry_nails</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-emerald-400 text-[10px]">Disponible</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight">
+                            Arte y Elegancia en <br class="hidden sm:inline">
+                            <span class="text-gradient">Tus Manos & Pies</span>
+                        </h1>
+
+                        <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light">
+                            Especialistas en <strong class="text-white font-medium">Nail Art GT</strong>, Manicure & Pedicure. Creamos diseños únicos adaptados a tu estilo y personalidad con la mejor calidad.
+                        </p>
+
+                        <!-- Highlights Badges -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0 text-left">
+                            <div class="p-3 rounded-xl bg-darkCard/80 border border-white/5 flex items-center space-x-3">
+                                <div class="text-cherryPink text-lg"><i class="fas fa-car"></i></div>
+                                <div>
+                                    <p class="text-xs font-semibold text-white">Parqueo Gratis</p>
+                                    <p class="text-[10px] text-gray-400">100% Seguro</p>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-darkCard/80 border border-white/5 flex items-center space-x-3">
+                                <div class="text-cherryPink text-lg"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <p class="text-xs font-semibold text-white">Lun a Sáb</p>
+                                    <p class="text-[10px] text-gray-400">8:00am - 6:00pm</p>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-darkCard/80 border border-white/5 flex items-center space-x-3 col-span-2 sm:col-span-1">
+                                <div class="text-cherryPink text-lg"><i class="fas fa-[#ff758c] fa-map-marker-alt"></i></div>
+                                <div>
+                                    <p class="text-xs font-semibold text-white">Zona 18</p>
+                                    <p class="text-[10px] text-gray-400">Santa Clara 1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#cotizador" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-cherryPink via-cherryLight to-pastelPeach text-white font-semibold text-sm shadow-lg shadow-cherryPink/20 hover:scale-105 transition duration-300 text-center">
+                                <i class="fas fa-calculator mr-2"></i> Cotizar mi Diseño
+                            </a>
+                            <a href="https://www.tiktok.com/@salon_cherry_nails" target="_blank" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white font-medium text-sm transition duration-300 flex items-center justify-center space-x-2">
+                                <i class="fab fa-tiktok text-cherryPink"></i>
+                                <span>Ver TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Logo / Card Visual -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative group">
+                            <!-- Outer Gradient Glow -->
+                            <div class="absolute -inset-1 rounded-full cherry-logo-gradient opacity-50 blur-xl group-hover:opacity-80 transition duration-500"></div>
+                            
+                            <!-- Main Logo Card Profile -->
+                            <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full cherry-logo-gradient p-3 flex flex-col items-center justify-center text-center shadow-2xl animate-float">
+                                <div class="w-full h-full rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex flex-col items-center justify-center p-6 text-white">
+                                    
+                                    <!-- Cherry Icon -->
+                                    <div class="mb-3 transform group-hover:scale-110 transition duration-300">
+                                        <svg class="w-16 h-16 text-white drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M19.38 8.86c-1.39-1.2-3.18-1.58-4.78-1.16L12.5 3.3a1 1 0 0 0-1.28-.6l-6 2.5a1 1 0 0 0-.54 1.31l.03.08a1 1 0 0 0 1.28.53l5.06-2.11 2.05 4.22c-1.78.78-3.07 2.4-3.3 4.38a5.503 5.503 0 0 0 4.31 6.01c2.97.58 5.76-1.39 6.34-4.36.33-1.68-.13-3.38-1.07-4.51zM6.5 20a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/>
+                                        </svg>
+                                    </div>
+
+                                    <h2 class="font-cursive text-4xl sm:text-5xl font-bold tracking-wide drop-shadow-sm">Cherry Nails</h2>
+                                    <p class="text-xs uppercase tracking-widest opacity-90 font-light mt-1">Salón de uñas</p>
+                                    
+                                    <div class="mt-4 pt-3 border-t border-white/20 flex items-center space-x-3 text-xs opacity-95">
+                                        <span>333 pub.</span>
+                                        <span>•</span>
+                                        <span>710 seg.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FORMAS DE UÑAS SECTION -->
+        <section id="formas" class="py-16 bg-darkCard/40 border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-cherryPink text-xs font-semibold uppercase tracking-widest">Guía de Estilo</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">Formas Populares de Uñas</h2>
+                    <p class="text-gray-400 text-sm mt-2">Elige la forma ideal que mejor se adapte al tipo de tus manos y resalte tu estilo personal.</p>
+                </div>
+
+                <!-- Grid Formas -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Forma Almendra -->
+                    <div class="glass-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cherryPink/10 text-cherryPink flex items-center justify-center text-xl font-bold">
+                                💅
+                            </span>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-cherryPink/20 text-cherryPink">Muy Popular</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Almendra (Almond)</h3>
+                        <p class="text-gray-400 text-sm mb-4">Base ancha que se estrecha hacia la punta redondeada. Elegante, clásica y estiliza visualmente los dedos.</p>
+                        <div class="text-xs text-cherryLight font-medium bg-white/5 p-2.5 rounded-lg border border-white/5">
+                            <i class="fas fa-check-circle mr-1"></i> Ideal para: Manos pequeñas o dedos cortos.
+                        </div>
+                    </div>
+
+                    <!-- Forma Coffin / Ballerina -->
+                    <div class="glass-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cherryPink/10 text-cherryPink flex items-center justify-center text-xl font-bold">
+                                🩰
+                            </span>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300">Tendencia</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Coffin / Ballerina</h3>
+                        <p class="text-gray-400 text-sm mb-4">Se estrecha drásticamente en los bordes y termina en una punta recta cuadrada. Muy moderna y glamurosa.</p>
+                        <div class="text-xs text-cherryLight font-medium bg-white/5 p-2.5 rounded-lg border border-white/5">
+                            <i class="fas fa-check-circle mr-1"></i> Ideal para: Uñas largas o acrílicas con presencia.
+                        </div>
+                    </div>
+
+                    <!-- Forma Stiletto -->
+                    <div class="glass-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cherryPink/10 text-cherryPink flex items-center justify-center text-xl font-bold">
+                                ✨
+                            </span>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300">Audaz</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Stiletto</h3>
+                        <p class="text-gray-400 text-sm mb-4">Termina en una punta afilada y puntiaguda dramática. Perfecta para quienes buscan destacar e impactar.</p>
+                        <div class="text-xs text-cherryLight font-medium bg-white/5 p-2.5 rounded-lg border border-white/5">
+                            <i class="fas fa-check-circle mr-1"></i> Ideal para: Diseños de Nail Art extensos y extravagantes.
+                        </div>
+                    </div>
+
+                    <!-- Forma Cuadrada -->
+                    <div class="glass-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cherryPink/10 text-cherryPink flex items-center justify-center text-xl font-bold">
+                                ⬛
+                            </span>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300">Clásico</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Cuadrada (Square)</h3>
+                        <p class="text-gray-400 text-sm mb-4">Líneas laterales completamente rectas y una punta plana de 90°. Un estilo limpio y resistente.</p>
+                        <div class="text-xs text-cherryLight font-medium bg-white/5 p-2.5 rounded-lg border border-white/5">
+                            <i class="fas fa-check-circle mr-1"></i> Ideal para: Lechos ungueales anchos y largo medio.
+                        </div>
+                    </div>
+
+                    <!-- Forma Ovalada -->
+                    <div class="glass-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cherryPink/10 text-cherryPink flex items-center justify-center text-xl font-bold">
+                                🔘
+                            </span>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300">Natural</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Ovalada (Oval)</h3>
+                        <p class="text-gray-400 text-sm mb-4">Curvatura suave que sigue la forma natural de la yema del dedo. Muy duradera y cómoda para el día a día.</p>
+                        <div class="text-xs text-cherryLight font-medium bg-white/5 p-2.5 rounded-lg border border-white/5">
+                            <i class="fas fa-check-circle mr-1"></i> Ideal para: Trabajo de oficina y uñas naturales.
+                        </div>
+                    </div>
+
+                    <!-- Forma Cincel / Squoval -->
+                    <div class="glass-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-cherryPink/10 text-cherryPink flex items-center justify-center text-xl font-bold">
+                                💎
+                            </span>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300">Versátil</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Squoval (Cuadrado Ovalado)</h3>
+                        <p class="text-gray-400 text-sm mb-4">Combina la solidez de la forma cuadrada con esquinas suavemente redondeadas. Cómoda y súper moderna.</p>
+                        <div class="text-xs text-cherryLight font-medium bg-white/5 p-2.5 rounded-lg border border-white/5">
+                            <i class="fas fa-check-circle mr-1"></i> Ideal para: Todo tipo de manos y largos.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CATALOGO DE ESTILOS & SERVICIOS -->
+        <section id="estilos" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="text-cherryPink text-xs font-semibold uppercase tracking-widest">Servicios & Galería</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">Catálogo de Estilos</h2>
+                    <p class="text-gray-400 text-sm mt-2">Explora nuestras técnicas más solicitadas en el salón.</p>
+                </div>
+
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                    <button class="tab-btn active px-5 py-2.5 rounded-full text-xs font-semibold transition border border-white/10" onclick="filterCatalog('todos', this)">Todos</button>
+                    <button class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition border border-white/10 bg-darkCard" onclick="filterCatalog('french', this)">French & Classic</button>
+                    <button class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition border border-white/10 bg-darkCard" onclick="filterCatalog('nailart', this)">Nail Art & Mano Alzada</button>
+                    <button class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition border border-white/10 bg-darkCard" onclick="filterCatalog('efectos', this)">Baby Boomer & Chrome</button>
+                    <button class="tab-btn px-5 py-2.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition border border-white/10 bg-darkCard" onclick="filterCatalog('pedicure', this)">Pedicure Spa</button>
+                </div>
+
+                <!-- Catalog Cards Grid -->
+                <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Item 1: French Elegante -->
+                    <div class="catalog-item french glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-48 bg-gradient-to-br from-rose-900/40 to-pink-900/20 flex items-center justify-center p-6 text-center">
+                            <span class="text-6xl group-hover:scale-110 transition duration-300">🌸</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 text-[10px] font-semibold text-cherryLight border border-white/10">Clásico</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">French Neón o Tradicional</h3>
+                            <p class="text-gray-400 text-xs mt-1">La clásica sonrisa blanca o reinterpretada con bordes de color pastel y degradados.</p>
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+                                <span class="text-gray-400"><i class="far fa-clock mr-1"></i> ~1h 15min</span>
+                                <span class="text-cherryPink font-bold text-sm">Desde Q.120</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Nail Art Cerezas -->
+                    <div class="catalog-item nailart glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-48 bg-gradient-to-br from-red-900/40 to-pink-900/20 flex items-center justify-center p-6 text-center">
+                            <span class="text-6xl group-hover:scale-110 transition duration-300">🍒</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 text-[10px] font-semibold text-cherryPink border border-white/10">Signature</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Diseño Cherry (Mano Alzada)</h3>
+                            <p class="text-gray-400 text-xs mt-1">Nuestra especialidad de la casa: cerezas detalladas pintadas a mano sobre base nude con brillo de alto impacto.</p>
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+                                <span class="text-gray-400"><i class="far fa-clock mr-1"></i> ~1h 45min</span>
+                                <span class="text-cherryPink font-bold text-sm">Desde Q.160</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Baby Boomer -->
+                    <div class="catalog-item efectos glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-48 bg-gradient-to-br from-purple-900/40 to-pink-900/20 flex items-center justify-center p-6 text-center">
+                            <span class="text-6xl group-hover:scale-110 transition duration-300">✨</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 text-[10px] font-semibold text-purple-300 border border-white/10">Efecto Glazed</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Baby Boomer / Ombré</h3>
+                            <p class="text-gray-400 text-xs mt-1">Degradado suave y difuminado desde el rosado nude hacia la punta blanca. Aspecto súper natural y sofisticado.</p>
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+                                <span class="text-gray-400"><i class="far fa-clock mr-1"></i> ~1h 30min</span>
+                                <span class="text-cherryPink font-bold text-sm">Desde Q.150</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Chrome Mirror -->
+                    <div class="catalog-item efectos glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-48 bg-gradient-to-br from-amber-900/40 to-yellow-900/20 flex items-center justify-center p-6 text-center">
+                            <span class="text-6xl group-hover:scale-110 transition duration-300">🪞</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 text-[10px] font-semibold text-amber-300 border border-white/10">Efecto Espejo</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Efecto Chrome Mirror</h3>
+                            <p class="text-gray-400 text-xs mt-1">Polvo cromado metalizado reflectante (plateado, dorado, rosado o tornasol sirena).</p>
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+                                <span class="text-gray-400"><i class="far fa-clock mr-1"></i> ~1h 20min</span>
+                                <span class="text-cherryPink font-bold text-sm">Desde Q.140</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Pedicure Spa -->
+                    <div class="catalog-item pedicure glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-48 bg-gradient-to-br from-teal-900/40 to-blue-900/20 flex items-center justify-center p-6 text-center">
+                            <span class="text-6xl group-hover:scale-110 transition duration-300">🦶</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 text-[10px] font-semibold text-teal-300 border border-white/10">Relax Spa</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">Pedicure Spa Completo</h3>
+                            <p class="text-gray-400 text-xs mt-1">Exfoliación profunda, limpieza de cutículas, masaje relajante y esmaltado semipermanente Gelish.</p>
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+                                <span class="text-gray-400"><i class="far fa-clock mr-1"></i> ~1h 15min</span>
+                                <span class="text-cherryPink font-bold text-sm">Desde Q.130</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: Gemas y Cristales Swarovski -->
+                    <div class="catalog-item nailart glass-card rounded-2xl overflow-hidden group">
+                        <div class="relative h-48 bg-gradient-to-br from-indigo-900/40 to-purple-900/20 flex items-center justify-center p-6 text-center">
+                            <span class="text-6xl group-hover:scale-110 transition duration-300">💎</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 text-[10px] font-semibold text-indigo-300 border border-white/10">3D Glam</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white">3D Glam & Aplique de Gemas</h3>
+                            <p class="text-gray-400 text-xs mt-1">Encapsulado de brillos, dijes, perlas y pedrería fina para lucir un set llamativo e inolvidable.</p>
+                            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+                                <span class="text-gray-400"><i class="far fa-clock mr-1"></i> ~2h 00min</span>
+                                <span class="text-cherryPink font-bold text-sm">Desde Q.180</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CALCULADORA / COTIZADOR INTERACTIVO -->
+        <section id="cotizador" class="py-16 bg-gradient-to-b from-darkBg via-darkCard to-darkBg relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="glass-card rounded-3xl p-6 sm:p-10 border border-cherryPink/20 relative overflow-hidden shadow-2xl">
+                    
+                    <div class="text-center max-w-2xl mx-auto mb-8">
+                        <span class="px-3 py-1 rounded-full bg-cherryPink/10 text-cherryPink text-xs font-semibold uppercase tracking-wider">Herramienta Interactiva</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">Cotizador de Uñas</h2>
+                        <p class="text-gray-300 text-xs sm:text-sm mt-1">Personaliza tu set deseado y calcula un estimado al instante para agendar por WhatsApp.</p>
+                    </div>
+
+                    <form id="calculatorForm" class="space-y-6">
+                        
+                        <!-- Step 1: Técnica -->
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-3"><span class="text-cherryPink">1.</span> Selecciona la Técnica Base:</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="tecnica" value="Gelish" data-price="90" class="peer hidden" checked onchange="calculateTotal()">
+                                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-bold text-white text-sm">Gelish / Semipermanente</p>
+                                        <p class="text-xs text-gray-400 mt-0.5">Uña natural</p>
+                                        <p class="text-xs text-cherryPink font-semibold mt-2">Q.90</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="tecnica" value="Soft Gel" data-price="130" class="peer hidden" onchange="calculateTotal()">
+                                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-bold text-white text-sm">Soft Gel Tips</p>
+                                        <p class="text-xs text-gray-400 mt-0.5">Ligero & Flexible</p>
+                                        <p class="text-xs text-cherryPink font-semibold mt-2">Q.130</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="tecnica" value="Acrílico" data-price="150" class="peer hidden" onchange="calculateTotal()">
+                                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-bold text-white text-sm">Uñas Acrílicas</p>
+                                        <p class="text-xs text-gray-400 mt-0.5">Alta resistencia</p>
+                                        <p class="text-xs text-cherryPink font-semibold mt-2">Q.150</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Largo -->
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-3"><span class="text-cherryPink">2.</span> Largo deseado:</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="largo" value="Corto (N° 1-2)" data-price="0" class="peer hidden" checked onchange="calculateTotal()">
+                                    <div class="p-3 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-semibold text-white text-xs">Corto (N° 1-2)</p>
+                                        <p class="text-[10px] text-gray-400">+ Q.0</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="largo" value="Mediano (N° 3)" data-price="20" class="peer hidden" onchange="calculateTotal()">
+                                    <div class="p-3 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-semibold text-white text-xs">Mediano (N° 3)</p>
+                                        <p class="text-[10px] text-gray-400">+ Q.20</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="largo" value="Largo (N° 4-5)" data-price="40" class="peer hidden" onchange="calculateTotal()">
+                                    <div class="p-3 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-semibold text-white text-xs">Largo (N° 4-5)</p>
+                                        <p class="text-[10px] text-gray-400">+ Q.40</p>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="largo" value="Extra Largo (XL)" data-price="60" class="peer hidden" onchange="calculateTotal()">
+                                    <div class="p-3 rounded-xl bg-white/5 border border-white/10 peer-checked:border-cherryPink peer-checked:bg-cherryPink/10 transition text-center">
+                                        <p class="font-semibold text-white text-xs">Extra Largo (XL)</p>
+                                        <p class="text-[10px] text-gray-400">+ Q.60</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Forma -->
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2"><span class="text-cherryPink">3.</span> Forma preferida:</label>
+                            <select id="formaSelect" class="w-full bg-darkBg text-white border border-white/10 rounded-xl p-3 text-sm focus:border-cherryPink focus:outline-none">
+                                <option value="Almendra (Almond)">Almendra (Almond)</option>
+                                <option value="Coffin / Ballerina">Coffin / Ballerina</option>
+                                <option value="Stiletto">Stiletto</option>
+                                <option value="Cuadrada (Square)">Cuadrada (Square)</option>
+                                <option value="Ovalada (Oval)">Ovalada (Oval)</option>
+                                <option value="Squoval">Squoval</option>
+                            </select>
+                        </div>
+
+                        <!-- Step 4: Extras & Diseños -->
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-3"><span class="text-cherryPink">4.</span> Diseños & Extras (Opcional):</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <label class="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10">
+                                    <input type="checkbox" name="extra" value="Nail Art Cerezas / Mano Alzada" data-price="30" class="rounded text-cherryPink focus:ring-0" onchange="calculateTotal()">
+                                    <div class="text-xs">
+                                        <p class="font-semibold text-white">Nail Art Mano Alzada (Cerezas/Flores)</p>
+                                        <p class="text-gray-400">+ Q.30</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10">
+                                    <input type="checkbox" name="extra" value="Efecto Espejo / Chrome" data-price="25" class="rounded text-cherryPink focus:ring-0" onchange="calculateTotal()">
+                                    <div class="text-xs">
+                                        <p class="font-semibold text-white">Efecto Espejo / Chrome / Glazed</p>
+                                        <p class="text-gray-400">+ Q.25</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10">
+                                    <input type="checkbox" name="extra" value="Encapsulado / Gemas 3D" data-price="35" class="rounded text-cherryPink focus:ring-0" onchange="calculateTotal()">
+                                    <div class="text-xs">
+                                        <p class="font-semibold text-white">Encapsulado de Glitter / Gemas Swarovski</p>
+                                        <p class="text-gray-400">+ Q.35</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10">
+                                    <input type="checkbox" name="extra" value="Retiro de Set Anterior" data-price="25" class="rounded text-cherryPink focus:ring-0" onchange="calculateTotal()">
+                                    <div class="text-xs">
+                                        <p class="font-semibold text-white">Retiro de Acrílico/Gel previo</p>
+                                        <p class="text-gray-400">+ Q.25</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Summary Banner -->
+                        <div class="p-4 rounded-2xl bg-white/5 border border-cherryPink/30 flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+                            <div>
+                                <span class="text-xs text-gray-400 block">Total Estimado del Servicio:</span>
+                                <span id="totalPrice" class="text-3xl font-bold text-gradient">Q.90.00</span>
+                                <span class="text-[10px] text-gray-400 block mt-0.5">*Precio final sujeto a revisión en salón</span>
+                            </div>
+
+                            <button type="button" onclick="sendWhatsAppQuote()" class="w-full sm:w-auto px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-2 shadow-lg shadow-emerald-500/20">
+                                <i class="fab fa-whatsapp text-base"></i>
+                                <span>Enviar Cotización a WhatsApp</span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- INFORMACION Y UBICACION -->
+        <section id="contacto" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Left: Info Cards -->
+                    <div class="lg:col-span-5 space-y-4">
+                        
+                        <div>
+                            <span class="text-cherryPink text-xs font-semibold uppercase tracking-widest">Encuéntranos</span>
+                            <h2 class="text-3xl font-serif font-bold text-white mt-1">Visítanos en el Salón</h2>
+                            <p class="text-gray-400 text-sm mt-2">Estamos listos para atenderte en un ambiente cómodo, privado y seguro.</p>
+                        </div>
+
+                        <!-- Direction Card -->
+                        <div class="glass-card p-4 rounded-2xl flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-cherryPink/20 text-cherryPink flex items-center justify-center shrink-0 text-lg">
+                                📍
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Dirección</h4>
+                                <p class="text-gray-300 text-xs mt-0.5">L. 4, Sec. A, M. 2, Col. Santa Clara 1, zona 18</p>
+                                <p class="text-gray-400 text-[11px] mt-1">Guatemala GT</p>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Card -->
+                        <div class="glass-card p-4 rounded-2xl flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-cherryPink/20 text-cherryPink flex items-center justify-center shrink-0 text-lg">
+                                🕒
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Horario de Atención</h4>
+                                <p class="text-gray-300 text-xs mt-0.5">Lunes a Sábado: 8:00 am a 6:00 pm</p>
+                                <p class="text-emerald-400 text-[11px] mt-1">Domingos: Cerrado</p>
+                            </div>
+                        </div>
+
+                        <!-- Parking Card -->
+                        <div class="glass-card p-4 rounded-2xl flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-cherryPink/20 text-cherryPink flex items-center justify-center shrink-0 text-lg">
+                                🚗
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Parqueo Gratis y Seguro</h4>
+                                <p class="text-gray-300 text-xs mt-0.5">Contamos con parqueo privado dentro del sector para tu total tranquilidad.</p>
+                            </div>
+                        </div>
+
+                        <!-- TikTok Card -->
+                        <a href="https://www.tiktok.com/@salon_cherry_nails" target="_blank" class="glass-card p-4 rounded-2xl flex items-center justify-between group hover:border-cherryPink transition block">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-black/60 text-white flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fab fa-tiktok"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Síguenos en TikTok</h4>
+                                    <p class="text-gray-400 text-xs">@salon_cherry_nails</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-500 group-hover:text-cherryPink transition"></i>
+                        </a>
+
+                    </div>
+
+                    <!-- Right: Direct Contact & Map Visual Placeholder -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+                            <h3 class="text-xl font-bold text-white mb-2">¿Tienes dudas o deseas consultar un diseño especial?</h3>
+                            <p class="text-gray-300 text-xs sm:text-sm mb-6">Puedes enviarnos una imagen de referencia por WhatsApp y te cotizaremos inmediatamente.</p>
+
+                            <!-- Social Buttons Container -->
+                            <div class="space-y-3">
+                                <a href="https://wa.me/50200000000?text=Hola%20Cherry%20Nails,%20tengo%20una%20consulta" target="_blank" class="w-full p-4 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 hover:bg-emerald-600/30 text-white font-medium text-sm flex items-center justify-between transition">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fab fa-whatsapp text-2xl text-emerald-400"></i>
+                                        <div>
+                                            <p class="font-bold">Chat Directo por WhatsApp</p>
+                                            <p class="text-[11px] text-emerald-200/80">Respuesta rápida en horario de atención</p>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </a>
+
+                                <a href="https://www.instagram.com/salon_cherry_nails" target="_blank" class="w-full p-4 rounded-2xl bg-pink-600/20 border border-pink-500/30 hover:bg-pink-600/30 text-white font-medium text-sm flex items-center justify-between transition">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fab fa-instagram text-2xl text-pink-400"></i>
+                                        <div>
+                                            <p class="font-bold">Instagram Direct Message</p>
+                                            <p class="text-[11px] text-pink-200/80">@salon_cherry_nails</p>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </a>
+                            </div>
+
+                            <!-- Decorative Footer map visual -->
+                            <div class="mt-6 pt-6 border-t border-white/10 text-center">
+                                <p class="text-xs text-gray-400">
+                                    <i class="fas fa-heart text-cherryPink mr-1"></i> Cherry Nails GT — Salón de uñas atendido con dedicación y amor.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/80 border-t border-white/5 py-8 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Cherry Nails (salon_cherry_nails). Todos los derechos reservados.</p>
+            <p class="mt-1 text-[11px] text-gray-600">Nail Artist GT | Manicure & Pedicure | Santa Clara 1, Z. 18</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Catalog Filter Tabs Logic
+        function filterCatalog(category, buttonEl) {
+            // Update active state of buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('bg-darkCard', 'text-gray-300');
+            });
+            buttonEl.classList.add('active');
+            buttonEl.classList.remove('bg-darkCard', 'text-gray-300');
+
+            // Filter items
+            const items = document.querySelectorAll('.catalog-item');
+            items.forEach(item => {
+                if (category === 'todos' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Calculator Logic
+        function calculateTotal() {
+            let total = 0;
+
+            // 1. Técnica
+            const tecnicaEl = document.querySelector('input[name="tecnica"]:checked');
+            if (tecnicaEl) {
+                total += parseFloat(tecnicaEl.getAttribute('data-price'));
+            }
+
+            // 2. Largo
+            const largoEl = document.querySelector('input[name="largo"]:checked');
+            if (largoEl) {
+                total += parseFloat(largoEl.getAttribute('data-price'));
+            }
+
+            // 3. Extras (Checkboxes)
+            const extrasChecked = document.querySelectorAll('input[name="extra"]:checked');
+            extrasChecked.forEach(extra => {
+                total += parseFloat(extra.getAttribute('data-price'));
+            });
+
+            // Update UI
+            document.getElementById('totalPrice').textContent = `Q.${total.toFixed(2)}`;
+            return total;
+        }
+
+        // Send Quote to WhatsApp
+        function sendWhatsAppQuote() {
+            const total = calculateTotal();
+            
+            const tecnica = document.querySelector('input[name="tecnica"]:checked')?.value || 'No especificada';
+            const largo = document.querySelector('input[name="largo"]:checked')?.value || 'No especificado';
+            const forma = document.getElementById('formaSelect').value;
+
+            // Get selected extras
+            const extrasChecked = document.querySelectorAll('input[name="extra"]:checked');
+            let extrasList = [];
+            extrasChecked.forEach(el => extrasList.push(el.value));
+
+            const extrasText = extrasList.length > 0 ? extrasList.join(', ') : 'Ninguno';
+
+            // Construct Message
+            const message = `Hola Cherry Nails 🍒! Quisiera agendar una cita con la siguiente cotización:%0A%0A` +
+                            `• *Técnica:* ${tecnica}%0A` +
+                            `• *Largo:* ${largo}%0A` +
+                            `• *Forma:* ${forma}%0A` +
+                            `• *Extras:* ${extrasText}%0A%0A` +
+                            `💰 *Estimado Total:* Q.${total.toFixed(2)}%0A%0A` +
+                            `¿Tienen disponibilidad de horarios? Gracias!`;
+
+            // WhatsApp link redirect
+            const whatsappUrl = `https://wa.me/50200000000?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Initialize Calculator on load
+        window.onload = function() {
+            calculateTotal();
+        };
+    </script>
+</body>
+</html>
